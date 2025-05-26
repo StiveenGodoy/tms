@@ -28,9 +28,16 @@ def entrada_valida(valor_str, tipo):
 
 
 if __name__ == "__main__":
-    print("Calculadora de IMC")
+
+    print("-----------")
+    print("¡Bienvenido a la Calculadora de IMC!")
+    print("-----------")
+
     peso = entrada_valida(input("Ingresa tu peso en kg: "), "peso")
     altura = entrada_valida(input("Ingresa tu altura en metros: "), "altura")
+    
     imc = calcular_imc(peso, altura)
     print(f"\nTu IMC calculado es: {imc:.2f}")
     print(f"Interpretación: {interpretar_imc(imc)}")
+
+    print(f"\nGracias por usar esta calculadora. ¡Cuida tu salud!")
