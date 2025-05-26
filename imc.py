@@ -32,5 +32,5 @@ if __name__ == "__main__":
     peso = entrada_valida(input("Ingresa tu peso en kg: "), "peso")
     altura = entrada_valida(input("Ingresa tu altura en metros: "), "altura")
     imc = calcular_imc(peso, altura)
-    print(f"Tu IMC es: {imc:.2f}")
+    print(f"\nTu IMC calculado es: {imc:.2f} (valor redondeado a dos decimales)")
     print(f"Interpretación: {interpretar_imc(imc)}")
