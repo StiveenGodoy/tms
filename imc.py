@@ -26,9 +26,7 @@ def entrada_valida(valor_str, tipo):
         print(f"Error: {e}")
         exit()
 
-
-if __name__ == "__main__":
-
+def main():
     print("-----------")
     print("¡Bienvenido a la Calculadora de IMC!")
     print("-----------")
@@ -41,3 +39,7 @@ if __name__ == "__main__":
     print(f"Interpretación: {interpretar_imc(imc)}")
 
     print(f"\nGracias por usar esta calculadora. ¡Cuida tu salud!")
+
+
+if __name__ == "__main__":
+    main()
