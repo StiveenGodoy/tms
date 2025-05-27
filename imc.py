@@ -1,5 +1,7 @@
+import math
+
 def calcular_imc(peso, altura):
-    imc = peso / (altura ** 2)
+    imc = peso / math.pow(altura,2)
     return imc
 
 def interpretar_imc(imc):
