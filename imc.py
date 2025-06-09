@@ -1,7 +1,8 @@
 import math
+import streamlit as st
 
 def calcular_imc(peso, altura):
-    imc = peso / math.pow(altura,2)
+    imc = peso / math.pow(altura, 2)
     return imc
 
 def interpretar_imc(imc):
@@ -13,35 +14,19 @@ def interpretar_imc(imc):
         return "Sobrepeso"
     else:
         return "Obesidad"
-    
-def entrada_valida(valor_str, tipo):
-    try:
-        valor = float(valor_str)
-        if tipo == "peso":
-            if valor < 10 or valor > 300:
-                raise ValueError("El peso debe estar entre 10 kg y 300 kg.")
-        elif tipo == "altura":
-            if valor < 0.5 or valor > 2.5:
-                raise ValueError("La altura debe estar entre 0.5 m y 2.5 m.")
-        return valor
-    except ValueError as e:
-        print(f"Error: {e}")
-        exit()
 
 def main():
-    print("-----------")
-    print("¡Bienvenido a la Calculadora de IMC!")
-    print("-----------")
+    st.title("Calculadora de IMC")
+    st.write("Esta herramienta te permite calcular tu Índice de Masa Corporal (IMC).")
 
-    peso = entrada_valida(input("Ingresa tu peso en kg: "), "peso")
-    altura = entrada_valida(input("Ingresa tu altura en metros: "), "altura")
-    
-    imc = calcular_imc(peso, altura)
-    print(f"\nTu IMC calculado es: {imc:.2f}")
-    print(f"Interpretación: {interpretar_imc(imc)}")
+    # Entradas con validación automática
+    peso = st.number_input("Ingresa tu peso en kg:", min_value=10.0, max_value=300.0, step=0.1)
+    altura = st.number_input("Ingresa tu altura en metros:", min_value=0.5, max_value=2.5, step=0.01)
 
-    print(f"\nGracias por usar esta calculadora. ¡Cuida tu salud!")
-
+    if st.button("Calcular IMC"):
+        imc = calcular_imc(peso, altura)
+        st.success(f"Tu IMC calculado es: {imc:.2f}")
+        st.info(f"Interpretación: {interpretar_imc(imc)}")
 
 if __name__ == "__main__":
     main()
